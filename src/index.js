@@ -2,21 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-//import {Router, Route, browserHistory} from 'react-router';
-// import RootLink from './components/rootlink';
+import * as serviceWorker from './serviceWorker'; 
+import {BrowserRouter as Router} from "react-router-dom";
 
-// class App extends React.Component {
-//     render() {
-//       return (
-//        <Router history={browserHistory}>
-//          <Route path={"/"} component={RootLink}/>
-//        </Router>
-//       );
-//     }
-//   }
+import 'bootstrap/dist/css/bootstrap.css';
+// import Counterss from './components/counterss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+<Router>
+     <App /> 
+</Router>,
+ document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

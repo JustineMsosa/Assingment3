@@ -1,42 +1,32 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
+import {Switch,Route} from "react-router-dom";
+import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Details from './components/Details';
+import VipContacts from './components/VipContacts';
+import Default from './components/Default';
+import PhoneBook from './components/PhoneBook';     
 
-import {Router, Route, browserHistory, IndexRoute} from 'react-router';
-
-import OutFits from './components/outfits';
-import HeadMaster from './components/headmaster';
-import Director from './components/director';
-import Forms from './components/forms';
-import Staff from './components/staff';
-import Grades from './components/grade';
-import Home from './components/home';
-import ContactUs from './components/contacts';
-
-//import {Router, Route, browserHistory} from 'react-router';
-import RootLink from './components/rootlink';
-
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 class App extends Component {
-    render() {
-      return (
-       <Router history={browserHistory}>
-         <Route path={"/"} component={RootLink}>
-         <Route path={"Director"} component={Director}/>
+  render() {
+    return (
+        <React.Fragment>
+          <Navbar />
+          <Switch>
+          <Route exact path="/" component={Home} />
+            <Route path="/details" component={Details} />
+            <Route path="/VipContacts" component={VipContacts} />
+            <Route path="/contacts" component={PhoneBook} />
 
-              <IndexRoute component={Home}/> {/* default route to be displayed with the first loader page */}
-              <Route path={"school-achivements"} component={OutFits}/>
-              <Route path={"headmaster"} component={HeadMaster}/>
-              <Route path={"director"} component={Director}/>
-              <Route path={"forms"} component={Forms}/>
-              <Route path={"staff"} component={Staff}/>
-              <Route path={"contacts"} component={ContactUs}/>
-              <Route path={"success"} component={OutFits}/>
-              <Route path={"grade-entry-point"} component={Grades}/>
-         </Route>
-       </Router>
-      )
-    }
+            <Route component={Default} />
+          </Switch> 
+        </React.Fragment>
+
+    );
   }
+}
 
 export default App;
